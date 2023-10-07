@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Protection</title>
+</head>
+<body>
+    <h1>IP Protection Using Blockchain</h1>
+    <form id="ipForm">
+        <label for="ipType">Select IP Type:</label>
+        <select id="ipType" name="ipType">
+            <option value="Patent">Patent</option>
+            <option value="Trademark">Trademark</option>
+            <option value="Copyright">Copyright</option>
+        </select><br>
+        <label for="ipDescription">IP Description:</label>
+        <input type="text" id="ipDescription" name="ipDescription" required><br>
+        <button type="submit">Timestamp IP</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('ipForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const ipType = document.getElementById('ipType').value;
+            const ipDescription = document.getElementById('ipDescription').value;
+
+            // You would typically interact with a back-end server here to interact with the blockchain.
+            // For this example, we'll simulate the interaction with a simple alert.
+
+            // Simulate the blockchain interaction.
+            try {
+                const txHash = await timestampIP(ipType, ipDescription);
+                alert(`IP (${ipType}) Timestamped successfully. Transaction Hash: ${txHash}`);
+            } catch (error) {
+                alert(`Error timestamping IP: ${error.message}`);
+            }
+        });
+
+        async function timestampIP(ipType, ipDescription) {
+            // Here, you would use a blockchain library like web3.js to send a transaction to the Ethereum network.
+            // This code is a simplified example and does not interact with a real Ethereum node.
+
+            // Simulate the blockchain transaction.
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const txHash = '0xTransactionHash'; // Replace with a real transaction hash.
+                    resolve(txHash);
+                }, 2000); // Simulating a 2-second transaction time.
+            });
+        }
+    </script>
+</body>
+</html>
